@@ -96,7 +96,7 @@ def _split_html_h2_sections(html):
 
     curr_section = ""
 
-    for tag in soup.children:
+    for tag in soup.find('div',{'class':'mw-parser-output'}).children:
 
         #If it is a valid tag (invalid tags has no 'name' property)
         if tag.name == None:
