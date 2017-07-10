@@ -50,6 +50,7 @@ def _download_langlinks(title, lang, timeout):
         'format=json',
         'prop=langlinks',
         'lllimit=500',
+        'llprop=url'
         'titles=' + title
     ]
 
@@ -70,6 +71,12 @@ def _download_langlinks(title, lang, timeout):
             continue
             
         for link in pagedata['langlinks']:
-            langlinks.append((link["lang"], link["*"]))
+            url_offset = link['url'].find("/wiki/")
+            if url_offset == -1:
+                link_url = None
+            else:
+                link_url = link['url'][url_offset+6:]
+
+            langlinks.append((link["lang"], link["*"], link_url))
             
     return langlinks
