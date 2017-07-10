@@ -50,7 +50,7 @@ def _download_langlinks(title, lang, timeout):
         'format=json',
         'prop=langlinks',
         'lllimit=500',
-        'llprop=url'
+        'llprop=url',
         'titles=' + title
     ]
 
