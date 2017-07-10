@@ -1,6 +1,6 @@
 import requests
 from . import exceptions
-from url import URL
+from .url import URL
 
 #PageRequestTimeout = exceptions.PageRequestTimeout
 #PageDoesNotExists = exceptions.PageDoesNotExists
