@@ -1,6 +1,6 @@
 import requests
 from . import exceptions
-from .url import URL
+from .url import URL, QuotedURL
 
 #PageRequestTimeout = exceptions.PageRequestTimeout
 #PageDoesNotExists = exceptions.PageDoesNotExists
@@ -81,6 +81,6 @@ def _download_langlinks(title, lang, timeout):
             else:
                 link_url = link['url'][url_offset+6:]
 
-            langlinks.append((link["lang"], link["*"], link_url))
+            langlinks.append((link["lang"], link["*"], QuotedURL(link_url)))
             
     return langlinks
